@@ -36,3 +36,19 @@ const initialCards = [
     link: "https://source.unsplash.com/dnMLdR814aA",
   },
 ];
+
+// Elements //
+
+const profileEditBtn = document.querySelector("#js-profile-edit-button");
+const profileEditModal = document.querySelector("#js-profile-edit-modal");
+const profileEditCloseBtn = document.querySelector(
+  "#js-edit-modal-close-button"
+);
+
+profileEditBtn.addEventListener("click", () => {
+  profileEditModal.classList.toggle("modal__opened");
+});
+
+profileEditCloseBtn.addEventListener("click", () => {
+  profileEditModal.classList.toggle("modal__opened");
+});
