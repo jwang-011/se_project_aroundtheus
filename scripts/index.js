@@ -81,7 +81,7 @@ function handleProfileSubmit(evt) {
   profileSubtitle.textContent = profileSubtitleInput.value;
 }
 
-// Event Listeners //
+// Event Listeners  //
 
 profileEditBtn.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.innerText;
