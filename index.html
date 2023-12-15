@@ -28,14 +28,16 @@
             class="profile__image"
           />
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title" id="js-profile-title">
+              Jacques Cousteau
+            </h1>
             <button
               aria-label=""
               class="profile__edit-button"
               id="js-profile-edit-button"
               type="button"
             ></button>
-            <p class="profile__subtitle">Explorer</p>
+            <p class="profile__subtitle" id="js-profile-subtitle">Explorer</p>
           </div>
           <button
             aria-label=""
@@ -45,98 +47,7 @@
         </section>
 
         <section class="cards page__section">
-          <ul class="cards__list">
-            <li class="card">
-              <img
-                src="./images/yosemite-valley.png"
-                alt="Yosemite Valley"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Yosemite Valley</h2>
-                <button
-                  aria-label=""
-                  class="card__like-button"
-                  type="button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lake-louise.png"
-                alt="Lake Louise photo"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lake Louise</h2>
-                <button
-                  aria-label=""
-                  class="card__like-button"
-                  type="button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/bald-mountains.png"
-                alt="Bald Mountains photo"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Bald Mountains</h2>
-                <button
-                  aria-label=""
-                  class="card__like-button"
-                  type="button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/latemar.png"
-                alt="Latemar photo"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Latemar</h2>
-                <button
-                  aria-label=""
-                  class="card__like-button"
-                  type="button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/vanoise-national-park.png"
-                alt="Vanoise National Park photo"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Vanoise National Park</h2>
-                <button
-                  aria-label=""
-                  class="card__like-button"
-                  type="button"
-                ></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lago-di-braies.png"
-                alt="Lago di Braies photo"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lago di Braies</h2>
-                <button
-                  aria-label=""
-                  class="card__like-button"
-                  type="button"
-                ></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="cards__list"></ul>
         </section>
       </main>
       <footer class="footer">
@@ -158,18 +69,37 @@
             class="modal__input"
             type="text"
             name="title"
-            placeholder="Jacques"
+            id="js-profile-title-input"
+            placeholder="Name"
           />
           <input
             class="modal__input"
             type="text"
             name="description"
-            placeholder="Explorer"
+            id="js-profile-subtitle-input"
+            placeholder="Description"
           />
-          <button class="modal__button" type="button">Save</button>
+          <button class="modal__button" type="button" id="js-profile-edit-save">
+            Save
+          </button>
         </form>
       </div>
     </div>
+
+    <template id="js-card-template">
+      <li class="card">
+        <img src="" alt="" class="card__image" />
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button
+            aria-label=""
+            class="card__like-button"
+            type="button"
+          ></button>
+        </div>
+      </li>
+    </template>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>
