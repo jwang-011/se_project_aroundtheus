@@ -42,6 +42,7 @@
           <button
             aria-label=""
             class="profile__add-button"
+            id="js-add-image-button"
             type="button"
           ></button>
         </section>
@@ -57,12 +58,7 @@
 
     <div class="modal" id="js-profile-edit-modal">
       <div class="modal__container">
-        <button
-          aria-label=""
-          class="modal__close"
-          id="js-edit-modal-close-button"
-          type="button"
-        ></button>
+        <button aria-label="" class="modal__close" type="button"></button>
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form">
           <input
@@ -86,14 +82,55 @@
       </div>
     </div>
 
+    <div class="modal" id="js-add-modal">
+      <div class="modal__container">
+        <button aria-label="" class="modal__close" type="button"></button>
+        <p class="modal__heading">New Place</p>
+        <form class="modal__form">
+          <input
+            class="modal__input"
+            type="text"
+            name="title"
+            id="js-place-title-input"
+            placeholder="Title"
+          />
+          <input
+            class="modal__input"
+            type="text"
+            name="imageURL"
+            id="js-add-URL-input"
+            placeholder="Image link"
+          />
+          <button class="modal__button" type="submit" id="js-image-add-save">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="js-image-modal">
+      <div class="modal__container modal__container_type_image">
+        <button aria-label="" class="modal__close" type="button"></button>
+        <img class="modal__image" src="" alt="" />
+        <p class="modal__caption"></p>
+      </div>
+    </div>
+
     <template id="js-card-template">
       <li class="card">
+        <button
+          aria-label=""
+          class="card__delete-button"
+          id="js-card-delete-button"
+          type="button"
+        ></button>
         <img src="" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button
             aria-label=""
             class="card__like-button"
+            id="js-card-like-button"
             type="button"
           ></button>
         </div>
