@@ -102,7 +102,8 @@ function getCardElement(data) {
   //EVENT LISTENER FOR IMAGE
 
   cardImageEl.addEventListener("click", () => {
-    modalImageEl.src = `Photo of ${data.name}`;
+    modalImageEl.src = data.link;
+    modalImageEl.alt = `Photo of ${data.name}`;
     modalCaption.textContent = data.name;
     openPopup(imageModal);
   });
@@ -110,7 +111,6 @@ function getCardElement(data) {
   cardImageEl.setAttribute("src", data.link);
   cardImageEl.setAttribute("alt", data.name);
   cardTitleEl.textContent = data.name;
-  cardListEl.prepend(cardElement);
 
   return cardElement;
 }
@@ -118,6 +118,16 @@ function getCardElement(data) {
 function renderCard() {
   const cardElement = getCardElement(data);
   cardListEl.prepend(cardElement);
+}
+
+function fillProfileForm() {
+  profileTitleInput.value = profileTitle.innerText;
+  profileSubtitleInput.value = profileSubtitle.textContent;
+}
+
+function openEditProfileModal() {
+  fillProfileForm();
+  openPopup(profileEditModal);
 }
 
 // Event Handlers //
@@ -138,15 +148,13 @@ function handleImageSubmit(evt) {
     link: imageURL,
   });
   closePopup(addImageModal);
-  evt.reset();
+  evt.target.reset();
 }
 
 // Event Listeners  //
 
 profileEditBtn.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.innerText;
-  profileSubtitleInput.value = profileSubtitle.textContent;
-  openPopup(profileEditModal);
+  openEditProfileModal();
 });
 
 profileEditCloseBtn.addEventListener("click", () =>
