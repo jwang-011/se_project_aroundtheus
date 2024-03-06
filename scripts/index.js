@@ -94,7 +94,7 @@ function getCardElement(data) {
   //EVENT LISTENER FOR IMAGE
 
   cardImageEl.addEventListener("click", () => {
-    modalImageEl.src = data.link;
+    modalImageEl.src = `Photo of ${data.name}`;
     modalCaption.textContent = data.name;
     togglePopup(imageModal);
   });
@@ -106,6 +106,13 @@ function getCardElement(data) {
 
   return cardElement;
 }
+
+function renderCard() {
+  const cardElement = getCardElement(data);
+  cardListEl.prepend(cardElement);
+}
+
+function renderCard() {}
 
 // Event Handlers //
 
@@ -120,11 +127,12 @@ function handleImageSubmit(evt) {
   evt.preventDefault();
   const imageTitle = addImageTitle.value;
   const imageURL = addImageURL.value;
-  getCardElement({
+  renderCard({
     name: imageTitle,
     link: imageURL,
   });
   togglePopup(addImageModal);
+  evt.reset();
 }
 
 // Event Listeners  //
