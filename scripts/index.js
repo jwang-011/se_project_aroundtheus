@@ -66,8 +66,16 @@ const cardTemplate =
 
 // Functions //
 
-function togglePopup(modal) {
-  modal.classList.toggle("modal_opened");
+// function togglePopup(modal) {
+//   modal.classList.toggle("modal_opened");
+// }
+
+function openPopup(modal) {
+  modal.classList.add("modal_opened");
+}
+
+function closePopup(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 function getCardElement(data) {
@@ -96,7 +104,7 @@ function getCardElement(data) {
   cardImageEl.addEventListener("click", () => {
     modalImageEl.src = `Photo of ${data.name}`;
     modalCaption.textContent = data.name;
-    togglePopup(imageModal);
+    openPopup(imageModal);
   });
 
   cardImageEl.setAttribute("src", data.link);
@@ -112,15 +120,13 @@ function renderCard() {
   cardListEl.prepend(cardElement);
 }
 
-function renderCard() {}
-
 // Event Handlers //
 
 function handleProfileSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
-  togglePopup(profileEditModal);
+  closePopup(profileEditModal);
 }
 
 function handleImageSubmit(evt) {
@@ -131,7 +137,7 @@ function handleImageSubmit(evt) {
     name: imageTitle,
     link: imageURL,
   });
-  togglePopup(addImageModal);
+  closePopup(addImageModal);
   evt.reset();
 }
 
@@ -140,20 +146,20 @@ function handleImageSubmit(evt) {
 profileEditBtn.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.innerText;
   profileSubtitleInput.value = profileSubtitle.textContent;
-  togglePopup(profileEditModal);
+  openPopup(profileEditModal);
 });
 
 profileEditCloseBtn.addEventListener("click", () =>
-  togglePopup(profileEditModal)
+  closePopup(profileEditModal)
 );
 profileEditForm.addEventListener("submit", handleProfileSubmit);
 
-addImageBtn.addEventListener("click", () => togglePopup(addImageModal));
+addImageBtn.addEventListener("click", () => openPopup(addImageModal));
 
-addImageCloseBtn.addEventListener("click", () => togglePopup(addImageModal));
+addImageCloseBtn.addEventListener("click", () => closePopup(addImageModal));
 addImageForm.addEventListener("submit", handleImageSubmit);
 
-imageCloseBtn.addEventListener("click", () => togglePopup(imageModal));
+imageCloseBtn.addEventListener("click", () => closePopup(imageModal));
 
 initialCards.forEach((data) => {
   const cardElement = getCardElement(data);
