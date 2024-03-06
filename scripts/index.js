@@ -115,7 +115,7 @@ function getCardElement(data) {
   return cardElement;
 }
 
-function renderCard() {
+function renderCard(data) {
   const cardElement = getCardElement(data);
   cardListEl.prepend(cardElement);
 }
