@@ -66,10 +66,6 @@ const cardTemplate =
 
 // Functions //
 
-// function togglePopup(modal) {
-//   modal.classList.toggle("modal_opened");
-// }
-
 function openPopup(modal) {
   modal.classList.add("modal_opened");
 }
@@ -172,4 +168,20 @@ imageCloseBtn.addEventListener("click", () => closePopup(imageModal));
 initialCards.forEach((data) => {
   const cardElement = getCardElement(data);
   cardListEl.prepend(cardElement);
+});
+
+// Project 6 Close Popup Listeners //
+
+document.addEventListener("click", function (evt) {
+  let overlay = evt.target;
+  if (overlay.classList.contains("modal_opened")) {
+    closePopup(overlay);
+  }
+});
+
+document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    closePopup(addImageModal);
+    closePopup(profileEditModal);
+  }
 });
