@@ -25,6 +25,7 @@
   padding: 34px 36px 36px;
   background-color: #ffffff;
   border-radius: 10px;
+  max-width: 350px;
 }
 
 .modal__close {
@@ -80,6 +81,20 @@
   border-bottom: 1px solid #ff0000;
 }
 
+.modal__error {
+  color: #ff0000;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+  opacity: 0;
+  margin: 0;
+}
+
+.modal__error_visible {
+  opacity: 1;
+}
+
 .modal__button {
   margin: 48px 0 0;
   background-color: #000000;
@@ -100,9 +115,9 @@
   color: rgb(0 0 0 / 0.5);
 }
 
-.modal__button:hover {
-  cursor: pointer;
+.modal__button:hover:not(:disabled) {
   opacity: 60%;
+  cursor: pointer;
 }
 
 .modal__container_type_image {
@@ -129,14 +144,6 @@
   margin: 0;
   position: absolute;
   top: calc(100% + 10px);
-}
-
-.modal__error {
-  color: #ff0000;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 14.52px;
 }
 
 @media screen and (max-width: 800px) and (min-width: 480px) {

@@ -64,14 +64,23 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#js-card-template").content.firstElementChild;
 
+const closeModalOnRemoteClick = (evt) => {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    closePopup(openedModal);
+  }
+};
+
 // Functions //
 
 function openPopup(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalOnRemoteClick);
 }
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeModalOnRemoteClick);
 }
 
 function getCardElement(data) {
@@ -172,16 +181,9 @@ initialCards.forEach((data) => {
 
 // Project 6 Close Popup Listeners //
 
-document.addEventListener("click", function (evt) {
-  let overlay = evt.target;
+document.addEventListener("mousedown", function (evt) {
+  const overlay = evt.target;
   if (overlay.classList.contains("modal_opened")) {
     closePopup(overlay);
-  }
-});
-
-document.addEventListener("keydown", function (evt) {
-  if (evt.key === "Escape") {
-    closePopup(addImageModal);
-    closePopup(profileEditModal);
   }
 });
