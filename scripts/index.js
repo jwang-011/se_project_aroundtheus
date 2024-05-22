@@ -64,23 +64,32 @@ const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#js-card-template").content.firstElementChild;
 
-const closeModalOnRemoteClick = (evt) => {
+// Functions //
+
+function closeModalOnEscape(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
     closePopup(openedModal);
   }
-};
+}
 
-// Functions //
+function closeModalonRemoteClick(evt) {
+  const overlay = evt.target;
+  if (overlay.classList.contains("modal_opened")) {
+    closePopup(overlay);
+  }
+}
 
 function openPopup(modal) {
   modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeModalOnRemoteClick);
+  document.addEventListener("keydown", closeModalOnEscape);
+  document.addEventListener("mousedown", closeModalonRemoteClick);
 }
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalOnRemoteClick);
+  document.removeEventListener("keydown", closeModalOnEscape);
+  document.removeEventListener("mousedown", closeModalonRemoteClick);
 }
 
 function getCardElement(data) {
@@ -177,13 +186,4 @@ imageCloseBtn.addEventListener("click", () => closePopup(imageModal));
 initialCards.forEach((data) => {
   const cardElement = getCardElement(data);
   cardListEl.prepend(cardElement);
-});
-
-// Project 6 Close Popup Listeners //
-
-document.addEventListener("mousedown", function (evt) {
-  const overlay = evt.target;
-  if (overlay.classList.contains("modal_opened")) {
-    closePopup(overlay);
-  }
 });
