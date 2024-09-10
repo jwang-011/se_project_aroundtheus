@@ -1,5 +1,5 @@
-import FormValidator from "./components/FormValidator.js";
-//import Card from "./Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
 
 const initialCards = [
   {
@@ -40,8 +40,6 @@ const initialCards = [
   },
 ];
 
-const card = new Card(initialCards);
-
 // Elements //
 
 const profileEditBtn = document.querySelector("#js-profile-edit-button");
@@ -68,7 +66,6 @@ const imageCloseBtn = imageModal.querySelector(".modal__close");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#js-card-template").content.firstElementChild;
-// Validation //
 
 const validationSettings = {
   formSelector: ".modal__form",
@@ -78,12 +75,6 @@ const validationSettings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
-
-// const editFormElement = editFormModalWindow.querySelector(".modal__form");
-// const addFormElement = cardFormModalWindow.querySelector(".modal__form");
-
-// const editFormValidator = new FormValidator(validationSettings);
-// const addFormValidator = new FormValidator(validationSettings);
 
 // Functions //
 
@@ -209,3 +200,14 @@ initialCards.forEach((data) => {
   const cardElement = getCardElement(data);
   cardListEl.prepend(cardElement);
 });
+
+// Validation //
+
+const editFormValidator = new FormValidator(
+  validationSettings,
+  profileEditForm
+);
+const addProfileValidator = new FormValidator(validationSettings, addImageForm);
+
+editFormValidator.enableValidation();
+addProfileValidator.enableValidation();

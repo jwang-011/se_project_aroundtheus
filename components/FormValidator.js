@@ -7,7 +7,6 @@ export default class FormValidator {
     this._errorClass = settings.errorClass;
 
     this._formEl = formEl;
-    console.log("This is working");
   }
 
   _showInputError(inputEl) {
@@ -52,7 +51,7 @@ export default class FormValidator {
     const inputEls = [...this.form.querySelectorAll(this._inputSelector)];
     const submitButton = this.form.querySelector(this._submitButtonSelector);
 
-    inputEls.forEach((inputEl) => {
+    this._inputEls.forEach((inputEl) => {
       inputEl.addEventListener("input", (evt) => {
         checkInputValidity(formEl, inputEl, options);
         toggleButtonState(inputEls, submitButton, options);
@@ -60,8 +59,8 @@ export default class FormValidator {
     });
   }
 
-  enableValidaton() {
-    this._form.addEventListener("submit", (evt) => {
+  enableValidation() {
+    this._formEl.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
 
