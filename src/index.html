@@ -60,7 +60,7 @@
       <div class="modal__container">
         <button aria-label="" class="modal__close" type="button"></button>
         <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form js-modal-form">
+        <form class="modal__form" id="profile-form" novalidate>
           <input
             class="modal__input"
             type="text"
@@ -71,7 +71,10 @@
             maxlength="40"
             required
           />
-          <span class="modal__error" id="js-profile-title-input-error"></span>
+          <span
+            id="js-profile-title-input-error"
+            class="modal__error"
+          ></span>
           <input
             class="modal__input"
             type="text"
@@ -83,15 +86,10 @@
             required
           />
           <span
-            class="modal__error"
             id="js-profile-subtitle-input-error"
+            class="modal__error"
           ></span>
-          <button
-            class="modal__button modal__button_disabled"
-            type="submit"
-            id="js-profile-edit-save"
-            disabled
-          >
+          <button class="modal__button" type="submit" id="js-profile-edit-save">
             Save
           </button>
         </form>
@@ -101,8 +99,8 @@
     <div class="modal" id="js-add-modal">
       <div class="modal__container">
         <button aria-label="" class="modal__close" type="button"></button>
-        <h2 class="modal__heading">New Place</h2>
-        <form class="modal__form js-modal-form">
+        <p class="modal__heading">New Place</p>
+        <form class="modal__form" id="place-form" novalidate>
           <input
             class="modal__input"
             type="text"
@@ -113,7 +111,10 @@
             maxlength="30"
             required
           />
-          <span class="modal__error" id="js-place-title-input-error"></span>
+          <span
+            id="js-place-title-input-error"  
+            class="modal__error"
+          ></span>
           <input
             class="modal__input"
             type="url"
@@ -122,13 +123,11 @@
             placeholder="Image link"
             required
           />
-          <span class="modal__error" id="js-add-URL-input-error"></span>
-          <button
-            class="modal__button modal__button_disabled"
-            type="submit"
-            id="js-image-add-save"
-            disabled
-          >
+          <span
+            id="js-add-URL-input-error"
+            class="modal__error"
+          ></span>
+          <button class="modal__button" type="submit" id="js-image-add-save">
             Save
           </button>
         </form>
@@ -143,8 +142,7 @@
       </div>
     </div>
 
-    <!--Card Template-->
-    <template id="js-card-template">
+    <template class="card-template" id="js-card-template">
       <li class="card">
         <button
           aria-label=""
@@ -164,8 +162,6 @@
         </div>
       </li>
     </template>
-
-    <!-- Index.js -->
-    <script type="module" defer src="./pages/index.js"></script>
+    <script src="./pages/index.js" type="module" defer></script>
   </body>
 </html>
