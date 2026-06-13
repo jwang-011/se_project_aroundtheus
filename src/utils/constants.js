@@ -33,15 +33,15 @@ export const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
   {
-    name: "Isles of Man",
-    link: "https://source.unsplash.com/lUb9ENbDFlA",
+    name: "Siberia",
+    link: "https://images.unsplash.com/photo-1624449423093-9be7de9967a3",
   },
   {
     name: "Volgograd",
-    link: "https://source.unsplash.com/OejrcVZfl60",
+    link: "https://images.unsplash.com/photo-1588424157150-fb13a23a2101",
   },
   {
-    name: "Candyland",
-    link: "https://source.unsplash.com/dnMLdR814aA",
+    name: "Hawaii",
+    link: "https://images.unsplash.com/photo-1505852679233-d9fd70aff56d",
   },
 ];
